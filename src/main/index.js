@@ -2,7 +2,7 @@
 import path from 'path'
 import { app, BrowserWindow, ipcMain } from 'electron'
 import { splasherChan } from '../constants/channels'
-
+import NSQListener from './nsq-listener'
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
@@ -15,6 +15,7 @@ let isMainWinReady = false
 let splashWin
 let mainWindow
 let splasherCounterId
+let nsqListener
 
 const splashURL = process.env.NODE_ENV === 'development' ? `http://localhost:9081/splash.html` : `file://${__dirname}/splash.html`
 const winURL = process.env.NODE_ENV === 'development' ? `http://localhost:9080` : `file://${__dirname}/index.html`
@@ -58,6 +59,11 @@ function createWindow () {
       // delaySec--
       splashWin.webContents.send(splasherChan, --delaySec)
     }, 1000)
+    // add nsqListener
+    nsqListener = new NSQListener('test', {})
+    nsqListener.add((msg) => {
+      console.log('get msg => ', msg)
+    })
   })
   delayClose()
 }

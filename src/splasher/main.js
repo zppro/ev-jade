@@ -12,5 +12,5 @@ ipc.on(splasherChan, (event, sec, tag) => {
   console.log(sec, tag)
   tag === 'countdown' && (skipper.style.display = 'block')
   countdown.innerHTML = sec
-  sec == -1 && ipc.send(splasherChan, 'skip')
+  sec === -1 && ipc.send(splasherChan, 'skip')
 })
