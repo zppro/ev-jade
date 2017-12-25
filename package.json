@@ -1,6 +1,6 @@
 {
   "name": "ev-jade",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "zppro",
   "description": "a communication app for jade service build by electron and vue",
   "license": null,

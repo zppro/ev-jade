@@ -14,16 +14,23 @@ class NSQListener extends EventEmitter {
     })
 
     this._msgHandlers = {}
-
     this._reader.connect()
-
     this._reader.on('message', msg => {
+      console.log('msg+>', msg)
+
       console.log('Received message [%s]: %s', msg.id, msg.body.toString())
-      const payload = msg.boay.json()
-      for (let hid in this._msgHandlers) {
-        this._msgHandlers[hid](payload)
+      let payload
+      try {
+        payload = msg.json()
+      } catch (ex) {
+        payload = msg.body.toString()
+        // console.log('ex:', ex)
+      } finally {
+        for (let hid in this._msgHandlers) {
+          this._msgHandlers[hid](payload)
+        }
+        msg.finish()
       }
-      msg.finish()
     })
   }
 

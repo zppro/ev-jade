@@ -62,7 +62,7 @@ function createWindow () {
     // add nsqListener
     nsqListener = new NSQListener('test', {})
     nsqListener.add((msg) => {
-      console.log('get msg => ', msg)
+      console.log('1 ---- get msg => ', msg)
     })
   })
   delayClose()
