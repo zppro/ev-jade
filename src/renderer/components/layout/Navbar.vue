@@ -7,7 +7,7 @@
             i.fa.fa-bars(aria-hidden='true', v-show='!sidebar.hidden')
         .nav-center
           a.nav-item.hero-brand(href='/')
-            img(src='assets/logo.png', :alt='pkginfo.description')
+            img(src='~assets/logo.svg', :alt='pkginfo.description')
             tooltip(:label="'v' + pkginfo.version", placement='right', type='success', size='small', :no-animate='true', :always='true', :rounded='true')
               .is-hidden-mobile
                 span.vue Vue
@@ -16,6 +16,7 @@
           router-link.nav-item(to='/login') Login
             a.nav-item(@click='logout') Logout
 </template>
+
 <style lang="scss">
   @import '~bulma/sass/utilities/initial-variables';
 
@@ -50,7 +51,8 @@
     }
   }
 </style>
-<script>
+
+<script type="text/ecmascript-6">
   import Tooltip from 'vue-bulma-tooltip'
   import { mapGetters, mapActions } from 'vuex'
   export default{

@@ -3,13 +3,13 @@
  * in a one-shot manner. There should not be any reason to edit this file.
  */
 
-const files = require.context('.', false, /\.js$/)
+const files = require.context('.', true, /\.js$/)
 const modules = {}
 
 files.keys().forEach(key => {
   console.log('>>', key)
-  if (key === './index.js') return
+  if (key.endsWith('/index.js')) return
   modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default
 })
-
+console.log(modules)
 export default modules
