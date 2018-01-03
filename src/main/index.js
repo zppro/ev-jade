@@ -30,7 +30,7 @@ function createWindow () {
     width: 1000,
     show: false,
   })
-
+  mainWindow.setMenu(null)
   mainWindow.loadURL(winURL)
 
   mainWindow.on('closed', () => {
@@ -60,7 +60,7 @@ function createWindow () {
       splashWin.webContents.send(splasherChan, --delaySec)
     }, 1000)
     // add nsqListener
-    nsqListener = new NSQListener('test', {})
+    nsqListener = new NSQListener('test', {lookupdHTTPAddresses: '139.224.70.118:4161'})
     nsqListener.add((msg) => {
       console.log('1 ---- get msg => ', msg)
     })
