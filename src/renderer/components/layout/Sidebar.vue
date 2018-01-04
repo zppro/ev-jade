@@ -9,16 +9,16 @@
             i.fa(:class='{ "fa-angle-double-left": !sidebar.shrinked, "fa-angle-double-right": sidebar.shrinked }')
     ul.menu-list
       li(v-for='(item, index) in menu')
-        router-link(:to='item.path', :exact='true', :aria-expanded="isExpanded(item) ? 'true' : 'false'", v-if='item.path', @click.native='toggle(index, item)')
+        router-link(:to='item.path', :exact='true', :aria-shrinked="sidebar.shrinked ? 'true' : 'false'", :aria-expanded="isExpanded(item) ? 'true' : 'false'", v-if='item.path', @click.native='toggle(index, item)', @mouseover.native='mouseover(item, $event)')
           span.icon.is-small
             i(:class="['fa', item.meta.icon]")
-          span(v-if="!sidebar.shrinked")           {{ item.meta.label || item.name }}
+          span(v-if="!sidebar.shrinked")          {{ item.meta.label || item.name }}
           span.icon.is-small.is-angle(v-if='item.children && item.children.length')
             i.fa.fa-angle-down
-        a(:aria-expanded='isExpanded(item)', v-else='', @click='toggle(index, item)', @mouseover='toggleSidebarPopup({popup: true, name: item.meta.label || item.name})', @mouseleave='toggleSidebarPopup({popup: false, name: item.meta.label || item.name})', )
+        a(:aria-shrinked="sidebar.shrinked ? 'true' : 'false'", :aria-expanded='isExpanded(item)', v-else='', @click='toggle(index, item)', @mouseover='mouseover(item, $event)')
           span.icon.is-small
             i(:class="['fa', item.meta.icon]")
-          span(v-if="!sidebar.shrinked")           {{ item.meta.label || item.name }}
+          span(v-if="!sidebar.shrinked")          {{ item.meta.label || item.name }}
           span.icon.is-small.is-angle(v-if='item.children && item.children.length')
             i.fa.fa-angle-down
         expanding(v-if='item.children && item.children.length')
@@ -70,6 +70,14 @@
         &[aria-expanded="true"] {
           .is-angle {
             transform: rotate(180deg);
+          }
+        }
+      }
+
+      li a:hover {
+        &[aria-shrinked="true"] {
+          .is-angle {
+            transform: rotate(-90deg);
           }
         }
       }
@@ -135,6 +143,18 @@
           index: index,
           expanded: !item.meta.expanded
         })
+      },
+
+      mouseover (item, $event) {
+        if (this.sidebar.shrinked && item.children && item.children.length) {
+          let pageHeight = document.body.scrollHeight - document.body.scrollTop
+          let clientY = $event.clientY - 20
+          let popHeight = 400
+          let top = clientY + popHeight - pageHeight > 0 ? pageHeight - popHeight : clientY
+          this.toggleSidebarPopup({opened: true, top, children: item.children})
+        } else {
+          this.toggleSidebarPopup({opened: false})
+        }
       },
 
       shouldExpandMatchItem (route) {

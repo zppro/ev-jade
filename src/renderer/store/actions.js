@@ -12,11 +12,8 @@ export const toggleSidebarExpandable = ({ commit }, config) => {
   }
 }
 
-export const toggleSidebarPopup = ({ commit }, config) => {
-  console.log('121212=>', config.popup, config.name)
-  if (config instanceof Object) {
-    commit(types.TOGGLE_SIDEBAR_POPUP, config)
-  }
+export const toggleSidebarPopup = ({ commit }, { opened, top, children }) => {
+  commit(types.TOGGLE_SIDEBAR_POPUP, { opened, top, children })
 }
 
 export const toggleDevice = ({ commit }, device) => commit(types.TOGGLE_DEVICE, device)

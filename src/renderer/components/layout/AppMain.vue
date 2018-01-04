@@ -34,7 +34,7 @@
         sidebar: 'sidebar'
       }),
       stateStyle () {
-        return this.sidebar.hidden ? { 'margin-left': 0 } : this.sidebar.shrinked ? { 'margin-left': '45px' } : null
+        return this.sidebar.hidden ? { 'margin-left': 0 } : this.sidebar.shrinked ? { 'margin-left': '60px' } : null
       }
     },
 

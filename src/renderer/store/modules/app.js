@@ -9,7 +9,11 @@ const state = {
     opened: false,
     hidden: false,
     shrinked: false,
-    popup: false,
+    popup: {
+      opened: false,
+      top: 0,
+      children: null
+    },
   },
   effect: {
     translate3d: true
@@ -42,12 +46,11 @@ const mutations = {
     }
   },
 
-  [types.TOGGLE_SIDEBAR_POPUP] (state, config) {
+  [types.TOGGLE_SIDEBAR_POPUP] (state, { opened, top, children }) {
     if (state.device.isMobile) {
-      state.sidebar.popup = false
+      state.sidebar.popup = { opened: false, top: 0, children: null }
     } else {
-      state.sidebar.popup = config.hasOwnProperty('popup') && config.popup
-      console.log('TOGGLE_SIDEBAR_POPUP:', state.sidebar.popup)
+      state.sidebar.popup = { opened: !!opened, top, children }
     }
   },
 
