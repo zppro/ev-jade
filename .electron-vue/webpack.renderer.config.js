@@ -18,7 +18,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
  * that provide pure *.vue files that need compiling
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/webpack-configurations.html#white-listing-externals
  */
-let whiteListedModules = ['vue', 'vue-bulma-tooltip', 'vue-bulma-expanding']
+let whiteListedModules = ['vue', 'vue-bulma-tooltip', 'vue-bulma-expanding', 'vue-bulma-breadcrumb']
 
 let rendererConfig = {
   devtool: '#cheap-module-eval-source-map',
@@ -143,6 +143,7 @@ let rendererConfig = {
       assets: path.resolve(__dirname, '../src/renderer/assets'),
       components: path.resolve(__dirname, '../src/renderer/components'),
       views: path.resolve(__dirname, '../src/renderer/views'),
+      utils: path.resolve(__dirname, '../src/renderer/utils'),
       'vue$': 'vue/dist/vue.esm.js'
     },
     extensions: ['.js', '.vue', '.json', '.css', '.node']

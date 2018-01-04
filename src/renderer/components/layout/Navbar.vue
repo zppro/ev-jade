@@ -1,53 +1,40 @@
 <template lang="pug">
-  section.hero.is-bold.app-navbar.animated(:class='{ slideInDown: show, slideOutDown: !show }')
-    .hero-head
-      nav.nav
-        .nav-left
-          a.nav-item.is-hidden-tablet(@click='toggleSidebar({opened: !sidebar.opened})')
-            i.fa.fa-bars(aria-hidden='true', v-show='!sidebar.hidden')
-        .nav-center
-          a.nav-item.hero-brand(href='/')
-            img(src='~assets/logo.svg', :alt='pkginfo.description')
-            tooltip(:label="'v' + pkginfo.version", placement='right', type='success', size='small', :no-animate='true', :always='true', :rounded='true')
-              .is-hidden-mobile
-                span.vue Vue
-                strong.admin Admin
-        .nav-right.is-flex
-          router-link.nav-item(to='/login') Login
-            a.nav-item(@click='logout') Logout
+  nav.navbar.is-bold.is-small.app-nav.animated(:class='{ slideInDown: show, slideOutDown: !show }')
+    a.navbar-item.is-hidden-tablet(@click='toggleSidebarVisible({opened: !sidebar.opened})')
+      i.fa.fa-bars(aria-hidden='true', v-show='!sidebar.hidden')
+    .navbar-start
+      .navbar-brand
+        a.navbar-item(href='/')
+          img(src='~assets/logo.svg', :alt='pkginfo.description')
+          tooltip(:label="'v' + pkginfo.version", placement='right', type='success', size='small', :no-animate='true', :always='true', :rounded='true')
+            .is-hidden-mobile.is-info
+              strong.admin {{pkginfo.description}}
+    .navbar-end
+      router-link.nav-item(to='/login') Login
+        a.nav-item(@click='logout') Logout
 </template>
 
-<style lang="scss">
+<style lang="scss" rel="stylesheet/scss">
   @import '~bulma/sass/utilities/initial-variables';
 
-  .app-navbar {
+  .app-nav {
     position: fixed;
     min-width: 100%;
     z-index: 1024;
     box-shadow: 0 2px 3px rgba(17, 17, 17, 0.1), 0 0 0 1px rgba(17, 17, 17, 0.1);
-
-    .container {
-      margin: auto 10px;
+    background-color: $black;
+    a.navbar-item{
+      img {
+        margin-right: .5rem;
+      }
+      &:hover, &:active{
+        background-color: transparent;
+      }
     }
-
-    .nav-right {
-      align-items: stretch;
-      align-items: stretch;
-      flex: 1;
-      justify-content: flex-end;
-      overflow: hidden;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-  }
-
-  .hero-brand {
-    .vue {
-      margin-left: 10px;
-      color: #36AC70;
-    }
-    .admin {
-      color: #28374B;
+    .navbar-brand {
+      .admin {
+        color: #36AC70;
+      }
     }
   }
 </style>
@@ -71,7 +58,7 @@
 
     methods: {
       ...mapActions([
-        'toggleSidebar'
+        'toggleSidebarVisible'
       ]),
       logout () {
       }

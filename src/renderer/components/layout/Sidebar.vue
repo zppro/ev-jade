@@ -1,19 +1,24 @@
 <template lang="pug">
-  aside.menu.app-sidebar.animated(:class='{ slideInLeft: show, slideOutLeft: !show }')
-    p.menu-label
-      | General
+  aside.menu.app-sidebar.animated(:class='{ slideInLeft: show, slideOutLeft: !show }', :style='[stateStyle]')
+    nav.level.menu-label
+      .level-left(v-show="!sidebar.shrinked")
+        .level-item General
+      div(:class='{ "level-item": sidebar.shrinked, "level-right": !sidebar.shrinked }')
+        a.level-item.has-text-black(@click="toggleSidebarExpandable({shrinked: !sidebar.shrinked})")
+          span.icon
+            i.fa(:class='{ "fa-angle-double-left": !sidebar.shrinked, "fa-angle-double-right": sidebar.shrinked }')
     ul.menu-list
       li(v-for='(item, index) in menu')
         router-link(:to='item.path', :exact='true', :aria-expanded="isExpanded(item) ? 'true' : 'false'", v-if='item.path', @click.native='toggle(index, item)')
           span.icon.is-small
             i(:class="['fa', item.meta.icon]")
-          |           {{ item.meta.label || item.name }}
+          span(v-if="!sidebar.shrinked")           {{ item.meta.label || item.name }}
           span.icon.is-small.is-angle(v-if='item.children && item.children.length')
             i.fa.fa-angle-down
-        a(:aria-expanded='isExpanded(item)', v-else='', @click='toggle(index, item)')
+        a(:aria-expanded='isExpanded(item)', v-else='', @click='toggle(index, item)', @mouseover='toggleSidebarPopup({popup: true, name: item.meta.label || item.name})', @mouseleave='toggleSidebarPopup({popup: false, name: item.meta.label || item.name})', )
           span.icon.is-small
             i(:class="['fa', item.meta.icon]")
-          |           {{ item.meta.label || item.name }}
+          span(v-if="!sidebar.shrinked")           {{ item.meta.label || item.name }}
           span.icon.is-small.is-angle(v-if='item.children && item.children.length')
             i.fa.fa-angle-down
         expanding(v-if='item.children && item.children.length')
@@ -23,7 +28,7 @@
                 | {{ subItem.meta && subItem.meta.label || subIt
 </template>
 
-<style lang="scss">
+<style lang="scss" rel="stylesheet/scss">
   @import '~bulma/sass/utilities/variables';
   @import '~bulma/sass/utilities/mixins';
 
@@ -104,12 +109,20 @@
       }
     },
 
-    computed: mapGetters({
-      menu: 'menuitems'
-    }),
+    computed: {
+      ...mapGetters({
+        sidebar: 'sidebar',
+        menu: 'menuitems',
+      }),
+      stateStyle () {
+        return this.sidebar.shrinked ? {'width': '60px'} : {'width': '180px'}
+      }
+    },
 
     methods: {
       ...mapActions([
+        'toggleSidebarExpandable',
+        'toggleSidebarPopup',
         'expandMenu'
       ]),
 

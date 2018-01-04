@@ -25,10 +25,11 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
+    height: 768,
     useContentSize: true,
-    width: 1000,
+    width: 1024,
     show: false,
+    title: 'jade-护士台'
   })
   mainWindow.setMenu(null)
   mainWindow.loadURL(winURL)
@@ -39,15 +40,17 @@ function createWindow () {
 
   splashWin = new BrowserWindow({
     width: 600,
-    height: 400,
+    height: 360,
     frame: false,
     transparent: true,
     useContentSize: true,
+    title: '正在启动...'
   })
 
   splashWin.loadURL(splashURL)
 
   splashWin.on('closed', () => {
+    mainWindow.maximize()
     mainWindow.show()
   })
 

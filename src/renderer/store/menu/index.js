@@ -1,5 +1,5 @@
-import * as types from '../../mutation-types'
-import lazyLoading from './lazyLoading'
+import * as types from '../mutation-types'
+import lazyLoading from 'utils/lazyLoading'
 import charts from './charts'
 import uifeatures from './uifeatures'
 import components from './components'
@@ -15,10 +15,22 @@ const state = {
       name: 'Dashboard',
       path: '/dashboard',
       meta: {
+        label: '数字面板',
         icon: 'fa-tachometer',
         link: 'dashboard/index.vue'
       },
       component: lazyLoading('dashboard', true)
+    },
+    {
+      name: 'NurseStation',
+      path: '/nurse-station',
+      meta: {
+        auth: true,
+        label: '护士台',
+        icon: 'fa-user-md',
+        link: 'nurse-station/index.vue'
+      },
+      component: lazyLoading('nurse-station', true)
     },
     {
       name: 'Axios',

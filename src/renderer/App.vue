@@ -3,6 +3,7 @@
     nprogress-container
     navbar(:show='true')
     sidebar(:show='sidebar.opened && !sidebar.hidden')
+    app-main
 </template>
 
 <style lang="scss">
@@ -19,7 +20,7 @@
     @import '~font-awesome/scss/font-awesome';
 
     html {
-        background-color: lightskyblue;
+        background-color: whitesmoke;
     }
 
     .nprogress-container {
@@ -50,13 +51,14 @@
 <script type="text/ecmascript-6">
   import { mapGetters, mapActions } from 'vuex'
   import NprogressContainer from 'vue-nprogress/src/NprogressContainer'
-  import { Navbar, Sidebar } from './components/layout/'
+  import { Navbar, Sidebar, AppMain } from './components/layout/'
   export default {
     name: 'ev-jade',
     components: {
       NprogressContainer,
       Navbar,
-      Sidebar
+      Sidebar,
+      AppMain
     },
     beforeMount () {
       const { body } = document
@@ -68,7 +70,7 @@
           let rect = body.getBoundingClientRect()
           let isMobile = rect.width - RATIO < WIDTH
           this.toggleDevice(isMobile ? 'mobile' : 'other')
-          this.toggleSidebar({
+          this.toggleSidebarVisible({
             opened: !isMobile
           })
         }
@@ -83,7 +85,7 @@
     }),
     methods: mapActions([
       'toggleDevice',
-      'toggleSidebar'
+      'toggleSidebarVisible'
     ])
   }
 </script>

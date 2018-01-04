@@ -1,8 +1,8 @@
 {
   "name": "ev-jade",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "zppro",
-  "description": "a communication app for jade service build by electron and vue",
+  "description": "养老平台-护士站",
   "license": "GPL-3.0",
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -70,12 +70,14 @@
     "nsqjs": "^0.10.0",
     "rand-token": "^0.4.0",
     "vue": "^2.3.3",
+    "vue-bulma-breadcrumb": "^1.0.1",
     "vue-bulma-expanding": "^0.0.1",
     "vue-bulma-tooltip": "^1.0.4",
     "vue-electron": "^1.0.6",
     "vue-nprogress": "^0.1.5",
     "vue-router": "^2.5.3",
     "vuex": "^2.3.1",
+    "vuex-router-sync": "^5.0.0",
     "wysiwyg.css": "^0.0.2"
   },
   "devDependencies": {

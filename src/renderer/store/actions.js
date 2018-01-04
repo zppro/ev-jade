@@ -1,8 +1,21 @@
 import * as types from './mutation-types'
 
-export const toggleSidebar = ({ commit }, config) => {
+export const toggleSidebarVisible = ({ commit }, config) => {
   if (config instanceof Object) {
-    commit(types.TOGGLE_SIDEBAR, config)
+    commit(types.TOGGLE_SIDEBAR_VISIBLE, config)
+  }
+}
+
+export const toggleSidebarExpandable = ({ commit }, config) => {
+  if (config instanceof Object) {
+    commit(types.TOGGLE_SIDEBAR_EXPANDABLE, config)
+  }
+}
+
+export const toggleSidebarPopup = ({ commit }, config) => {
+  console.log('121212=>', config.popup, config.name)
+  if (config instanceof Object) {
+    commit(types.TOGGLE_SIDEBAR_POPUP, config)
   }
 }
 

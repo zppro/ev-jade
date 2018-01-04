@@ -1,4 +1,4 @@
-import lazyLoading from './lazyLoading'
+import lazyLoading from '../../utils/lazyLoading'
 
 export default {
   path: '/components',

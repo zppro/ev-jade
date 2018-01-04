@@ -7,7 +7,9 @@ const state = {
   },
   sidebar: {
     opened: false,
-    hidden: false
+    hidden: false,
+    shrinked: false,
+    popup: false,
   },
   effect: {
     translate3d: true
@@ -20,7 +22,7 @@ const mutations = {
     state.device.isTablet = device === 'tablet'
   },
 
-  [types.TOGGLE_SIDEBAR] (state, config) {
+  [types.TOGGLE_SIDEBAR_VISIBLE] (state, config) {
     if (state.device.isMobile && config.hasOwnProperty('opened')) {
       state.sidebar.opened = config.opened
     } else {
@@ -29,6 +31,23 @@ const mutations = {
 
     if (config.hasOwnProperty('hidden')) {
       state.sidebar.hidden = config.hidden
+    }
+  },
+
+  [types.TOGGLE_SIDEBAR_EXPANDABLE] (state, config) {
+    if (state.device.isMobile) {
+      state.sidebar.shrinked = false
+    } else {
+      state.sidebar.shrinked = config.hasOwnProperty('shrinked') && config.shrinked
+    }
+  },
+
+  [types.TOGGLE_SIDEBAR_POPUP] (state, config) {
+    if (state.device.isMobile) {
+      state.sidebar.popup = false
+    } else {
+      state.sidebar.popup = config.hasOwnProperty('popup') && config.popup
+      console.log('TOGGLE_SIDEBAR_POPUP:', state.sidebar.popup)
     }
   },
 
