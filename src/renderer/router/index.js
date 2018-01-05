@@ -45,5 +45,6 @@ function generateRoutesFromMenu (menu = [], routes = []) {
       generateRoutesFromMenu(item.children, routes)
     }
   }
+  console.log('routes:', routes)
   return routes
 }

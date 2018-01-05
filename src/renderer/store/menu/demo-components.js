@@ -1,40 +1,35 @@
-import lazyLoading from '../../utils/lazyLoading'
+import lazyLoading from 'utils/lazyLoading'
 
 export default {
-  path: '/components',
+  path: '/demo-components',
   meta: {
     icon: 'fa-building-o',
     expanded: false,
     label: 'Components'
   },
-  component: lazyLoading('components', true),
+  component: lazyLoading('demo-components', true),
 
   children: [
     {
       name: 'Components',
       path: '',
-      component: lazyLoading('components/Default'),
-      meta: {
-        link: 'components/Default.vue'
-      }
+      component: lazyLoading('demo-components/Default')
     },
     {
       name: 'BackToTop',
       path: 'backToTop',
       meta: {
         description: 'Jump component is based on jump.js',
-        repository: 'https://github.com/vue-bulma/jump',
-        link: 'components/BackToTop.vue'
+        repository: 'https://github.com/vue-bulma/jump'
       },
-      component: lazyLoading('components/BackToTop')
+      component: lazyLoading('demo-components/BackToTop')
     },
     {
       name: 'Brace',
       path: 'brace',
       meta: {
         description: 'Code editor component that based on brace',
-        repository: 'https://github.com/vue-bulma/brace',
-        link: 'components/Brace.vue'
+        repository: 'https://github.com/vue-bulma/brace'
       },
       component: lazyLoading('components/Brace')
     },

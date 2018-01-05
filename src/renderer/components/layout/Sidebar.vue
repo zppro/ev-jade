@@ -25,7 +25,7 @@
           ul(v-show='isExpanded(item)')
             li(v-for='subItem in item.children', v-if='subItem.path')
               router-link(:to='generatePath(item, subItem)')
-                | {{ subItem.meta && subItem.meta.label || subIt
+                | {{ subItem.meta && subItem.meta.label || subItem.name }}
 </template>
 
 <style lang="scss" rel="stylesheet/scss" scoped>

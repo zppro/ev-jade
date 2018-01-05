@@ -1,9 +1,9 @@
 import * as types from '../mutation-types'
 import lazyLoading from 'utils/lazyLoading'
-import charts from './charts'
-import uifeatures from './uifeatures'
-import components from './components'
-import tables from './tables'
+import demoCharts from './demo-charts'
+import demoUI from './demo-ui'
+import demoComponents from './demo-components'
+import demoTables from './demo-tables'
 
 // show: meta.label -> name
 // name: component name
@@ -16,8 +16,7 @@ const state = {
       path: '/dashboard',
       meta: {
         label: '数字面板',
-        icon: 'fa-tachometer',
-        link: 'dashboard/index.vue'
+        icon: 'fa-tachometer'
       },
       component: lazyLoading('dashboard', true)
     },
@@ -27,8 +26,7 @@ const state = {
       meta: {
         auth: true,
         label: '护士台',
-        icon: 'fa-user-md',
-        link: 'nurse-station/index.vue'
+        icon: 'fa-user-md'
       },
       component: lazyLoading('nurse-station', true)
     },
@@ -37,15 +35,14 @@ const state = {
       path: '/axiosDemo',
       meta: {
         auth: true,
-        icon: 'fa-rocket',
-        link: 'axios/index.vue'
+        icon: 'fa-rocket'
       },
       component: lazyLoading('axios', true)
     },
-    charts,
-    uifeatures,
-    components,
-    tables
+    demoCharts,
+    demoUI,
+    demoComponents,
+    demoTables
   ]
 }
 
