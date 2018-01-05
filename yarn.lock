@@ -1563,6 +1563,14 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
 
+bulma-badge@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/bulma-badge/-/bulma-badge-0.1.0.tgz#870982c9c8b4b5955ca1b22e7f99d754108ea48f"
+
+bulma-tooltip@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/bulma-tooltip/-/bulma-tooltip-0.1.1.tgz#1ac496152aa04c32b728243d9e6e6083952b7707"
+
 bulma@^0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.6.1.tgz#5f21a77c0c06f7d80051c06628c23516081bd649"
@@ -1821,10 +1829,6 @@ clap@^1.0.9:
   resolved "https://registry.yarnpkg.com/clap/-/clap-1.2.3.tgz#4f36745b32008492557f46412d66d50cb99bce51"
   dependencies:
     chalk "^1.1.3"
-
-classnames@2.2.5:
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
 clean-css@3.4.x, clean-css@^3.3.0:
   version "3.4.28"
@@ -4100,10 +4104,6 @@ header-case@^1.0.0:
 highlight.js@^9.3.0:
   version "9.12.0"
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.12.0.tgz#e6d9dbe57cbefe60751f02af336195870c90c01e"
-
-hint.css@2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/hint.css/-/hint.css-2.4.1.tgz#cf3396c2df216974c5d9533ee30f3030d7378f9b"
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
@@ -8334,20 +8334,9 @@ void-elements@^2.0.0, void-elements@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
-vue-bulma-breadcrumb@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/vue-bulma-breadcrumb/-/vue-bulma-breadcrumb-1.0.1.tgz#5d9e5756f538f94feb8e265c3c947a39d87536f7"
-
 vue-bulma-expanding@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/vue-bulma-expanding/-/vue-bulma-expanding-0.0.1.tgz#fcf71c2e8ef09157175bd5187eb71b3ce75a2229"
-
-vue-bulma-tooltip@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/vue-bulma-tooltip/-/vue-bulma-tooltip-1.0.4.tgz#1add9166d659cacb22cbf18a5252ce7365eb82c4"
-  dependencies:
-    classnames "2.2.5"
-    hint.css "2.4.1"
 
 vue-electron@^1.0.6:
   version "1.0.6"

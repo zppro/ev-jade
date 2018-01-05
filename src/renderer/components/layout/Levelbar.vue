@@ -9,17 +9,15 @@
 </template>
 <style lang="scss" rel="stylesheet/scss" scoped>
   .app-levelbar {
-    box-shadow: 0 2px 3px rgba(17, 17, 17, 0.1);
+    box-shadow: 0 4px 2px rgba(17, 17, 17, 0.1);
   }
 </style>
 <script type="text/ecmascript-6">
-  import Breadcrumb from 'vue-bulma-breadcrumb'
-  import Tooltip from 'vue-bulma-tooltip'
+  import Breadcrumb from './Breadcrumb'
 
   export default {
     components: {
-      Breadcrumb,
-      Tooltip
+      Breadcrumb
     },
 
     data () {
@@ -50,7 +48,7 @@
         let matched = this.$route.matched.filter(item => item.name)
         let first = matched[0]
         if (first && (first.name !== 'Home' || first.path !== '')) {
-          matched = [{ name: 'Home', path: '/' }].concat(matched)
+          matched = [{ name: '首页', path: '/' }].concat(matched)
         }
         this.list = matched
       }

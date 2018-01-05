@@ -4,7 +4,7 @@
     navbar(:show='true')
     sidebar(:show='sidebar.opened && !sidebar.hidden')
     .app-popup(v-if="sidebar.shrinked && sidebar.popup.opened", :style='[stateStyle]') heelo
-    app-main
+    app-main(@mouseenter.native="enterAppMain()")
 </template>
 
 <style lang="scss" rel="stylesheet/scss">
@@ -99,9 +99,15 @@
         return this.sidebar.shrinked && this.sidebar.popup.opened ? {'left': '55px', 'top': this.sidebar.popup.top + 'px'} : {'left': 0, 'top': 0}
       }
     },
-    methods: mapActions([
-      'toggleDevice',
-      'toggleSidebarVisible'
-    ])
+    methods: {
+      ...mapActions([
+        'toggleDevice',
+        'toggleSidebarVisible',
+        'toggleSidebarPopup'
+      ]),
+      enterAppMain () {
+        this.sidebar.shrinked && this.sidebar.popup.opened && this.toggleSidebarPopup({opened: false})
+      }
+    }
   }
 </script>

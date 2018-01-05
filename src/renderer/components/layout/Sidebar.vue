@@ -2,7 +2,7 @@
   aside.menu.app-sidebar.animated(:class='{ slideInLeft: show, slideOutLeft: !show }', :style='[stateStyle]')
     nav.level.menu-label
       .level-left(v-show="!sidebar.shrinked")
-        .level-item General
+        .level-item ,您好
       div(:class='{ "level-item": sidebar.shrinked, "level-right": !sidebar.shrinked }')
         a.level-item.has-text-black(@click="toggleSidebarExpandable({shrinked: !sidebar.shrinked})")
           span.icon
@@ -28,7 +28,7 @@
                 | {{ subItem.meta && subItem.meta.label || subIt
 </template>
 
-<style lang="scss" rel="stylesheet/scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
   @import '~bulma/sass/utilities/variables';
   @import '~bulma/sass/utilities/mixins';
 
@@ -80,6 +80,10 @@
             transform: rotate(-90deg);
           }
         }
+      }
+
+      li a.is-active {
+        background-color: $turquoise;
       }
 
       li a + ul {

@@ -11,11 +11,19 @@ export default new Router({
     {
       name: 'Home',
       path: '/',
+      meta: {
+        label: '首页',
+        icon: 'fa-home'
+      },
       component: lazyLoading('Home')
     },
     {
       name: 'Login',
       path: '/login',
+      meta: {
+        label: '登录',
+        icon: 'fa-sign-in'
+      },
       component: lazyLoading('auth/Login')
     },
     ...generateRoutesFromMenu(menu.state.items),
