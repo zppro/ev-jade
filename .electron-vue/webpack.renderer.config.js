@@ -18,7 +18,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
  * that provide pure *.vue files that need compiling
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/webpack-configurations.html#white-listing-externals
  */
-let whiteListedModules = ['vue', 'vue-bulma-expanding', 'vue-bulma-chartjs', 'vue-bulma-chartist', 'vue-bulma-card', 'vue-cleave']
+let whiteListedModules = ['vue',
+  'vue-bulma-expanding', 'vue-bulma-chartjs', 'vue-bulma-chartist',
+  'vue-bulma-card', 'vue-bulma-jump', 'vue-bulma-brace', 'vue-bulma-collapse',
+  'vue-bulma-datepicker', 'vue-bulma-tooltip', 'vue-bulma-tabs',
+  'vue-cleave', 'vue-lory']
 
 let rendererConfig = {
   devtool: '#cheap-module-eval-source-map',
@@ -59,8 +63,8 @@ let rendererConfig = {
       {
         test: /\.js$/,
         use: 'babel-loader',
-        exclude: /node_modules/
-        // exclude: [new RegExp(`node_modules\\${path.sep}(?!vue-bulma-.*)`)]
+        //exclude: /node_modules/
+        exclude: [new RegExp(`node_modules\\${path.sep}(?!vue-bulma-.*)`)]
       },
       {
         test: /\.node$/,

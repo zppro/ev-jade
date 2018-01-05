@@ -17,7 +17,7 @@ export default {
     },
     {
       name: 'BackToTop',
-      path: 'backToTop',
+      path: 'demo-components/backToTop',
       meta: {
         description: 'Jump component is based on jump.js',
         repository: 'https://github.com/vue-bulma/jump'
@@ -26,42 +26,30 @@ export default {
     },
     {
       name: 'Brace',
-      path: 'brace',
+      path: 'demo-components/brace',
       meta: {
         description: 'Code editor component that based on brace',
         repository: 'https://github.com/vue-bulma/brace'
       },
-      component: lazyLoading('components/Brace')
+      component: lazyLoading('demo-components/Brace')
     },
     {
       name: 'Collapse',
-      path: 'collapse',
+      path: 'demo-components/collapse',
       meta: {
         description: 'Collapse component',
-        repository: 'https://github.com/vue-bulma/collapse',
-        link: 'components/Collapse.vue'
+        repository: 'https://github.com/vue-bulma/collapse'
       },
-      component: lazyLoading('components/Collapse')
+      component: lazyLoading('demo-components/Collapse')
     },
     {
       name: 'Datepicker',
-      path: 'datepicker',
+      path: 'demo-components/datepicker',
       meta: {
         description: 'Datepicker component is based on flatpickr',
-        repository: 'https://github.com/vue-bulma/datepicker',
-        link: 'components/Datepicker.vue'
+        repository: 'https://github.com/vue-bulma/datepicker'
       },
-      component: lazyLoading('components/Datepicker')
-    },
-    {
-      name: 'Emoji',
-      path: 'emoji',
-      meta: {
-        description: 'Emoji Component is based on emojione.com',
-        repository: 'https://github.com/vue-bulma/emoji',
-        link: 'components/Emoji.vue'
-      },
-      component: lazyLoading('components/Emoji')
+      component: lazyLoading('demo-components/Datepicker')
     },
     {
       name: 'Message',
@@ -155,33 +143,30 @@ export default {
     },
     {
       name: 'Tabs',
-      path: 'tabs',
+      path: 'demo-components/tabs',
       meta: {
         description: 'Tabs component',
-        repository: 'https://github.com/vue-bulma/tabs',
-        link: 'components/Tabs.vue'
+        repository: 'https://github.com/vue-bulma/tabs'
       },
-      component: lazyLoading('components/Tabs')
+      component: lazyLoading('demo-components/Tabs')
     },
     {
       name: 'Tooltip',
-      path: 'tooltip',
+      path: 'demo-components/tooltip',
       meta: {
         description: 'Tooltip component is based on hint.css',
-        repository: 'https://github.com/vue-bulma/tooltip',
-        link: 'components/Tooltip.vue'
+        repository: 'https://github.com/vue-bulma/tooltip'
       },
-      component: lazyLoading('components/Tooltip')
+      component: lazyLoading('demo-components/Tooltip')
     },
     {
       name: 'Lory',
-      path: 'lory',
+      path: 'demo-components/lory',
       meta: {
         description: 'Slider component is based on lory, lory: ☀ Touch enabled minimalistic slider',
-        repository: 'https://github.com/vue-bulma/lory',
-        link: 'components/Lory.vue'
+        repository: 'https://github.com/vue-bulma/lory'
       },
-      component: lazyLoading('components/Lory')
+      component: lazyLoading('demo-components/Lory')
     }
   ]
 }
