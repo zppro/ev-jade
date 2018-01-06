@@ -20,12 +20,10 @@
     },
     "renderer": {
       "presets": [
-        ["es2015", { "modules": false }],
         ["env", {
           "modules": false
         }],
-        "stage-0",
-        "stage-2"
+        "stage-0"
       ]
     },
     "web": {
@@ -33,8 +31,7 @@
         ["env", {
           "modules": false
         }],
-        "stage-0",
-        "stage-2"
+        "stage-0"
       ]
     }
   },
