@@ -1,6 +1,6 @@
 <template lang="pug">
   nav.app-quicklaunch
-    router-link.icon.is-active.tooltip.is-tooltip-bottom.is-tooltip-info(to='/', data-tooltip="首页", @mouseenter="toggleQuickLaunchIcon('home', true)", @mouseleave="toggleQuickLaunchIcon('home', false)")
+    router-link.icon.is-active.tooltip.is-tooltip-bottom.is-tooltip-info(to='/', data-tooltip="首页", @mouseenter.native="toggleQuickLaunchIcon('home', true)", @mouseleave.native="toggleQuickLaunchIcon('home', false)")
       span.fa-stack
         i.fa.fa-circle.fa-stack-2x.has-text-info
         i.fa.fa-home.fa-stack-1x.animated(:class='{ fadeInUp: focusStatus["home"], "fa-inverse": focusStatus["home"] }')

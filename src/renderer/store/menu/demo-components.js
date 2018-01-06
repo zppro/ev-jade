@@ -53,93 +53,93 @@ export default {
     },
     {
       name: 'Message',
-      path: 'message',
+      path: 'demo-components/message',
       meta: {
         description: 'Message component',
         repository: 'https://github.com/vue-bulma/message',
-        link: 'components/Message.vue'
+        link: 'demo-components/Message.vue'
       },
-      component: lazyLoading('components/Message')
+      component: lazyLoading('demo-components/Message')
     },
     {
       name: 'Modal',
-      path: 'modal',
+      path: 'demo-components/modal',
       meta: {
         description: 'Modal component',
         repository: 'https://github.com/vue-bulma/modal',
-        link: 'components/Modal.vue'
+        link: 'demo-components/Modal.vue'
       },
-      component: lazyLoading('components/Modal')
+      component: lazyLoading('demo-components/Modal')
     },
     {
       name: 'Notification',
-      path: 'notification',
+      path: 'demo-components/notification',
       meta: {
         description: 'Notification component',
         repository: 'https://github.com/vue-bulma/notification',
-        link: 'components/Notification.vue'
+        link: 'demo-components/Notification.vue'
       },
-      component: lazyLoading('components/Notification')
+      component: lazyLoading('demo-components/Notification')
     },
     {
       name: 'ProgressBar',
-      path: 'progress-bar',
+      path: 'demo-components/progress-bar',
       meta: {
         description: 'ProgressBar component',
         repository: 'https://github.com/vue-bulma/progress-bar',
-        link: 'components/ProgressBar.vue'
+        link: 'demo-components/ProgressBar.vue'
       },
-      component: lazyLoading('components/ProgressBar')
+      component: lazyLoading('demo-components/ProgressBar')
     },
     {
       name: 'ProgressTracker',
-      path: 'progress-tracker',
+      path: 'demo-components/progress-tracker',
       meta: {
         description: 'ProgressTracker component is based on progress-tracker',
         repository: 'https://github.com/vue-bulma/progress-tracker',
-        link: 'components/ProgressTracker.vue'
+        link: 'demo-components/ProgressTracker.vue'
       },
-      component: lazyLoading('components/ProgressTracker')
+      component: lazyLoading('demo-components/ProgressTracker')
     },
     {
       name: 'Quill',
-      path: 'quill',
+      path: 'demo-components/quill',
       meta: {
         description: 'Your powerful, rich text editor',
         repository: 'https://github.com/vue-bulma/quill',
-        link: 'components/Quill.vue'
+        link: 'demo-components/Quill.vue'
       },
-      component: lazyLoading('components/Quill')
+      component: lazyLoading('demo-components/Quill')
     },
     {
       name: 'Rating',
-      path: 'rating',
+      path: 'demo-components/rating',
       meta: {
         description: 'Rating component is based on starability.css',
         repository: 'https://github.com/vue-bulma/rating',
-        link: 'components/Rating.vue'
+        link: 'demo-components/Rating.vue'
       },
-      component: lazyLoading('components/Rating')
+      component: lazyLoading('demo-components/Rating')
     },
     {
       name: 'Slider',
-      path: 'slider',
+      path: 'demo-components/slider',
       meta: {
         description: 'Slider component',
         repository: 'https://github.com/vue-bulma/slider',
-        link: 'components/Slider.vue'
+        link: 'demo-components/Slider.vue'
       },
-      component: lazyLoading('components/Slider')
+      component: lazyLoading('demo-components/Slider')
     },
     {
       name: 'Switch',
-      path: 'switch',
+      path: 'demo-components/switch',
       meta: {
         description: 'Switch component',
         repository: 'https://github.com/vue-bulma/switch',
         link: 'components/Switch.vue'
       },
-      component: lazyLoading('components/Switch')
+      component: lazyLoading('demo-components/Switch')
     },
     {
       name: 'Tabs',

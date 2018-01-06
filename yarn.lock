@@ -1934,6 +1934,10 @@ clone@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.3.tgz#298d7e2231660f40c003c2ed3140decf3f53085f"
 
+clone@~2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/clone/-/clone-2.0.0.tgz#df65d3ca142e4a4a47db33da3468d088a16fc76e"
+
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
@@ -2519,7 +2523,7 @@ deep-eql@^3.0.0:
   dependencies:
     type-detect "^4.0.0"
 
-deep-equal@^1.0.1:
+deep-equal@^1.0.1, deep-equal@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
 
@@ -3357,6 +3361,10 @@ eventemitter3@1.x.x:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-1.2.0.tgz#1c86991d816ad1e504750e73874224ecf3bec508"
 
+eventemitter3@~2.0.1:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-2.0.3.tgz#b5e1079b59fb5e1ba2771c0a993be060a58c99ba"
+
 events@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/events/-/events-1.1.1.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
@@ -3503,6 +3511,10 @@ extsprintf@^1.2.0:
 fast-deep-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.0.0.tgz#96256a3bc975595eb36d82e9929d060d893439ff"
+
+fast-diff@^1.0.1:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.1.2.tgz#4b62c42b8e03de3f848460b639079920695d0154"
 
 fast-json-stable-stringify@^2.0.0:
   version "2.0.0"
@@ -6091,6 +6103,10 @@ param-case@2.1.x, param-case@^2.1.0:
   dependencies:
     no-case "^2.2.0"
 
+parchment@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/parchment/-/parchment-1.0.2.tgz#df6aae2fce06dbc1bbc0b949ef82e55ebe0fae13"
+
 parse-asn1@^5.0.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/parse-asn1/-/parse-asn1-5.1.0.tgz#37c4f9b7ed3ab65c74817b5f2480937fbf97c712"
@@ -6638,6 +6654,10 @@ progress-stream@^1.1.0:
     speedometer "~0.1.2"
     through2 "~0.2.3"
 
+progress-tracker@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/progress-tracker/-/progress-tracker-1.0.0.tgz#86df6909f9649bc5a347459725ba9c5bbb666bed"
+
 progress@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.0.tgz#8a1be366bf8fc23db2bd23f10c6fe920b4389d1f"
@@ -6843,6 +6863,25 @@ querystringify@0.0.x:
 querystringify@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-1.0.0.tgz#6286242112c5b712fa654e526652bf6a13ff05cb"
+
+quill-delta@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/quill-delta/-/quill-delta-3.2.0.tgz#617041bb364d686ceea337bfda76a70b9ad639a2"
+  dependencies:
+    deep-equal "^1.0.1"
+    extend "^3.0.0"
+    fast-diff "^1.0.1"
+
+quill@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/quill/-/quill-1.1.0.tgz#881d30920552ed8a16d39b23010eb587d237a1ec"
+  dependencies:
+    clone "~2.0.0"
+    deep-equal "~1.0.1"
+    eventemitter3 "~2.0.1"
+    extend "~3.0.0"
+    parchment "1.0.2"
+    quill-delta "3.2.0"
 
 rabin-bindings@~1.7.4:
   version "1.7.4"
@@ -7759,6 +7798,10 @@ ssri@^5.0.0:
   dependencies:
     safe-buffer "^5.1.0"
 
+starability@1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/starability/-/starability-1.0.5.tgz#5419145ec7d57dd169db353089acae19cffd05e0"
+
 stat-mode@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/stat-mode/-/stat-mode-0.2.2.tgz#e6c80b623123d7d80cf132ce538f346289072502"
@@ -8474,6 +8517,48 @@ vue-bulma-jump@^0.0.2:
   resolved "https://registry.yarnpkg.com/vue-bulma-jump/-/vue-bulma-jump-0.0.2.tgz#311331581a3ef21c906967c1c9c42e63d643c9fa"
   dependencies:
     jump.js "^1.0.2"
+
+vue-bulma-message@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/vue-bulma-message/-/vue-bulma-message-1.1.1.tgz#a3c23e706deced511321f11862b7124741d8ef0d"
+
+vue-bulma-modal@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-bulma-modal/-/vue-bulma-modal-1.0.1.tgz#943dfd6ab4726ceeb0b126f05372c5d1c68abd83"
+
+vue-bulma-notification@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/vue-bulma-notification/-/vue-bulma-notification-1.1.1.tgz#e559763065d53c2755cee73906b4e7010c137512"
+
+vue-bulma-progress-bar@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/vue-bulma-progress-bar/-/vue-bulma-progress-bar-1.0.2.tgz#5da40a8010fcc6345a825498aa147f522268e39f"
+
+vue-bulma-progress-tracker@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/vue-bulma-progress-tracker/-/vue-bulma-progress-tracker-0.0.4.tgz#d132af7eea5d0857eda733e96951a2c9c395624d"
+  dependencies:
+    progress-tracker "1.0.0"
+
+vue-bulma-quill@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/vue-bulma-quill/-/vue-bulma-quill-0.0.1.tgz#aa2993327af9cefafdf62cb2303219646962297f"
+  dependencies:
+    quill "1.1.0"
+
+vue-bulma-rating@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-bulma-rating/-/vue-bulma-rating-1.0.1.tgz#34b25fa29d24249d6074e28db95c47b9d00d2e58"
+  dependencies:
+    starability "1.0.5"
+
+vue-bulma-slider@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/vue-bulma-slider/-/vue-bulma-slider-1.0.2.tgz#7b8e0dd0bc2c1a7c5e77d117059847ba41eaff14"
+
+vue-bulma-switch@^2.0.0-alpha.2:
+  version "2.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/vue-bulma-switch/-/vue-bulma-switch-2.0.0-alpha.2.tgz#979780a9ccb70d9ef98f0e109a36b48c39acfc70"
 
 vue-bulma-tabs@^1.1.2:
   version "1.1.2"

@@ -22,6 +22,9 @@ let whiteListedModules = ['vue',
   'vue-bulma-expanding', 'vue-bulma-chartjs', 'vue-bulma-chartist',
   'vue-bulma-card', 'vue-bulma-jump', 'vue-bulma-brace', 'vue-bulma-collapse',
   'vue-bulma-datepicker', 'vue-bulma-tooltip', 'vue-bulma-tabs',
+  'vue-bulma-switch', 'vue-bulma-slider', 'vue-bulma-rating', 'vue-bulma-quill',
+  'vue-bulma-progress-tracker', 'vue-bulma-progress-bar', 'vue-bulma-notification',
+  'vue-bulma-message', 'vue-bulma-modal',
   'vue-cleave', 'vue-lory']
 
 let rendererConfig = {
@@ -57,6 +60,10 @@ let rendererConfig = {
         loaders: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
+        test: /\.(styl|stylus)/,
+        loaders: ['style-loader', 'css-loader', 'stylus-loader']
+      },
+      {
         test: /\.html$/,
         use: 'vue-html-loader'
       },
@@ -78,7 +85,9 @@ let rendererConfig = {
             extractCSS: process.env.NODE_ENV === 'production',
             loaders: {
               sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',
-              scss: 'vue-style-loader!css-loader!sass-loader'
+              scss: 'vue-style-loader!css-loader!sass-loader',
+              stylus: 'vue-style-loader!css-loader!stylus-loader',
+              styl: 'vue-style-loader!css-loader!stylus-loader'
             }
           }
         }
