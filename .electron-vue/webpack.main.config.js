@@ -5,6 +5,7 @@ process.env.BABEL_ENV = 'main'
 const path = require('path')
 const { dependencies } = require('../package.json')
 const webpack = require('webpack')
+const config = require('../config')
 
 const BabiliWebpackPlugin = require('babili-webpack-plugin')
 
@@ -61,8 +62,10 @@ let mainConfig = {
  * Adjust mainConfig for development settings
  */
 if (process.env.NODE_ENV !== 'production') {
+  console.log('config.dev.env:', config.dev.env)
   mainConfig.plugins.push(
     new webpack.DefinePlugin({
+      'process.env.CONFIG': config.dev.config,
       '__static': `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`
     })
   )
@@ -75,6 +78,7 @@ if (process.env.NODE_ENV === 'production') {
   mainConfig.plugins.push(
     new BabiliWebpackPlugin(),
     new webpack.DefinePlugin({
+      'process.env.CONFIG': config.build.config,
       'process.env.NODE_ENV': '"production"'
     })
   )

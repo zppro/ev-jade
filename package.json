@@ -1,6 +1,6 @@
 {
   "name": "ev-jade",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "author": "zppro",
   "description": "养老平台-护士站",
   "license": "GPL-3.0",
@@ -64,12 +64,13 @@
   },
   "dependencies": {
     "animate.css": "^3.5.2",
-    "axios": "^0.16.1",
+    "axios": "^0.17.1",
     "bulma": "^0.6.1",
     "bulma-badge": "^0.1.0",
     "bulma-tooltip": "^0.1.1",
     "font-awesome": "4.7.0",
     "nsqjs": "^0.10.0",
+    "qs": "^6.5.1",
     "rand-token": "^0.4.0",
     "vue": "^2.3.3",
     "vue-bulma-brace": "^0.1.0",

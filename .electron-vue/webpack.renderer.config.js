@@ -1,7 +1,7 @@
 'use strict'
 
 process.env.BABEL_ENV = 'renderer'
-
+const config = require('../config')
 const path = require('path')
 const { dependencies } = require('../package.json')
 const webpack = require('webpack')
@@ -170,6 +170,7 @@ let rendererConfig = {
 if (process.env.NODE_ENV !== 'production') {
   rendererConfig.plugins.push(
     new webpack.DefinePlugin({
+      'process.env.CONFIG': config.dev.config,
       '__static': `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`
     })
   )
@@ -191,6 +192,7 @@ if (process.env.NODE_ENV === 'production') {
       }
     ]),
     new webpack.DefinePlugin({
+      'process.env.CONFIG': config.build.config,
       'process.env.NODE_ENV': '"production"'
     }),
     new webpack.LoaderOptionsPlugin({

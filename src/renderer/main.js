@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import axios from 'axios'
+// import axios from 'axios'
+import http from 'utils/http'
 import NProgress from 'vue-nprogress'
 import { sync } from 'vuex-router-sync'
 import App from './App'
@@ -10,7 +11,7 @@ import { TOGGLE_SIDEBAR_VISIBLE } from './store/mutation-types'
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.config.productionTip = false
-Vue.http = Vue.prototype.$http = axios
+Vue.http = Vue.prototype.$http = http
 
 Vue.use(NProgress, {
   latencyThreshold: 200, // Number of ms before progressbar starts showing, default: 100,

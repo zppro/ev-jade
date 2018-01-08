@@ -58,9 +58,11 @@ export default {
     // Can set query parameter here for auth redirect or just do it silently in login redirect.
   },
   methods: {
-    login () {
+    async login () {
       this.isSubmitting = true
-      console.log('isSubmitting:', this.isSubmitting)
+      console.log('isSubmitting:', this.isSubmitting, this)
+      const ret = await this.$http.post(`services/share/login/signin`, {code: this.data.body.username, password: this.data.body.password})
+      console.log('>>>', ret)
     },
     cancel () {
       this.isSubmitting && (this.error = '您取消了本次登录过程')
