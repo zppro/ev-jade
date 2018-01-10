@@ -90,6 +90,7 @@
       document.addEventListener('visibilitychange', handler)
       window.addEventListener('DOMContentLoaded', handler)
       window.addEventListener('resize', handler)
+      this.loadUserFromLS()
     },
     computed: {
       ...mapGetters({
@@ -103,7 +104,8 @@
       ...mapActions([
         'toggleDevice',
         'toggleSidebarVisible',
-        'toggleSidebarPopup'
+        'toggleSidebarPopup',
+        'loadUserFromLS'
       ]),
       enterAppMain () {
         this.sidebar.shrinked && this.sidebar.popup.opened && this.toggleSidebarPopup({opened: false})

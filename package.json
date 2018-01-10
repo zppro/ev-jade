@@ -1,6 +1,6 @@
 {
   "name": "ev-jade",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "author": "zppro",
   "description": "养老平台-护士站",
   "license": "GPL-3.0",
@@ -68,6 +68,7 @@
     "bulma": "^0.6.1",
     "bulma-badge": "^0.1.0",
     "bulma-tooltip": "^0.1.1",
+    "crypto-js": "^3.1.9-1",
     "font-awesome": "4.7.0",
     "nsqjs": "^0.10.0",
     "qs": "^6.5.1",

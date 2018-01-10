@@ -36,47 +36,58 @@
 </style>
 
 <script type="text/ecmascript-6">
-export default {
+  import { mapActions } from 'vuex'
+  import md5 from 'crypto-js/md5'
+  export default {
 
-  data () {
-    return {
-      isSubmitting: false,
-      data: {
-        body: {
-          username: null,
-          password: null
+    data () {
+      return {
+        isSubmitting: false,
+        data: {
+          body: {
+            username: null,
+            password: null
+          },
+          rememberMe: false
         },
-        rememberMe: false
-      },
-      error: null
-    }
-  },
-  mounted () {
-    //  if (this.$auth.redirect()) {
-    //  console.log('Redirect from: ' + this.$auth.redirect().from.name)
-    //  }
-    // Can set query parameter here for auth redirect or just do it silently in login redirect.
-  },
-  methods: {
-    async login () {
-      this.isSubmitting = true
-      console.log('isSubmitting:', this.isSubmitting, this)
-      const ret = await this.$http.post(`services/share/login/signin`, {code: this.data.body.username, password: this.data.body.password})
-      console.log('>>>', ret)
+        error: null
+      }
     },
-    cancel () {
-      this.isSubmitting && (this.error = '您取消了本次登录过程')
-      this.isSubmitting = false
+    mounted () {
+      //  if (this.$auth.redirect()) {
+      //  console.log('Redirect from: ' + this.$auth.redirect().from.name)
+      //  }
+      // Can set query parameter here for auth redirect or just do it silently in login redirect.
+    },
+    methods: {
+      ...mapActions([
+        'loginSuccess'
+      ]),
+      async login () {
+        this.isSubmitting = true
+        console.log('isSubmitting:', this.isSubmitting, this)
+        const ret = await this.$http.post(`services/share/login/signinMedical`, {code: this.data.body.username, password_hash: md5(this.data.body.password).toString()})
+          .catch(() => {
+            this.isSubmitting = false
+          })
+        if (ret) {
+          console.log('>>>', ret)
+          this.loginSuccess()
+        }
+      },
+      cancel () {
+        this.isSubmitting && (this.error = '您取消了本次登录过程')
+        this.isSubmitting = false
+      }
     }
-  }
-  // filters: {
-  //   json: function (value) {
-  //     console.log(value)
-  //     return value
-  //   }
-  // }
+    // filters: {
+    //   json: function (value) {
+    //     console.log(value)
+    //     return value
+    //   }
+    // }
 
-}
+  }
 </script>
 
 

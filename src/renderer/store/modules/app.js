@@ -17,7 +17,8 @@ const state = {
   },
   effect: {
     translate3d: true
-  }
+  },
+  user: null
 }
 
 const mutations = {
@@ -58,6 +59,10 @@ const mutations = {
     for (let name in effectItem) {
       state.effect[name] = effectItem[name]
     }
+  },
+
+  [types.SET_USER] (state, user) {
+    state.user = user
   }
 }
 

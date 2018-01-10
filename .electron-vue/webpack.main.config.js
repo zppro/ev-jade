@@ -62,7 +62,6 @@ let mainConfig = {
  * Adjust mainConfig for development settings
  */
 if (process.env.NODE_ENV !== 'production') {
-  console.log('config.dev.env:', config.dev.env)
   mainConfig.plugins.push(
     new webpack.DefinePlugin({
       'process.env.CONFIG': config.dev.config,

@@ -39,7 +39,8 @@ const makeApi = (key, axiosOption, jwtFlag) => {
         if (res.headers.parse !== 'no-parse') {
           if (!res.data.success) {
             let error = new Error(`业务请求失败:${res.data.msg}`)
-            console.error(error)
+            // console.error('error in parse:', error)
+            store.dispatch('alert', { title: '错误提示', message: `业务请求失败:${res.data.msg}`, type: 'danger' })
             return Promise.reject(error)
           } else {
             return res.data.ret || res.data.rows
@@ -58,6 +59,7 @@ const makeApi = (key, axiosOption, jwtFlag) => {
       } else {
         console.log('err res status:', error.response.status)
       }
+      store.dispatch('alert', { title: '错误提示', message: `系统错误:${error.response.toString()}`, type: 'danger' })
       return Promise.reject(error)
     })
   }

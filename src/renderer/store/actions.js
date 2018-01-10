@@ -1,4 +1,7 @@
+import Vue from 'vue'
+import Message from 'vue-bulma-message'
 import * as types from './mutation-types'
+import * as keys from './keys'
 
 export const toggleSidebarVisible = ({ commit }, config) => {
   if (config instanceof Object) {
@@ -29,4 +32,32 @@ export const switchEffect = ({ commit }, effectItem) => {
   if (effectItem) {
     commit(types.SWITCH_EFFECT, effectItem)
   }
+}
+
+export const loginSuccess = ({ commit, dispatch }, user) => {
+  if (user) {
+    commit(types.SET_USER, user)
+    dispatch('saveUserToLS')
+  }
+}
+
+export const saveUserToLS = ({commit, state}) => {
+  if (state.user) {
+    window.localStorage.setItem(keys.LS_USER_KEY, JSON.stringify(state.user))
+  }
+}
+
+export const loadUserFromLS = ({ commit }) => {
+  let user = JSON.parse(window.localStorage.getItem(keys.LS_USER_KEY))
+  if (user) {
+    commit(types.SET_USER, user)
+  }
+}
+
+const MessageComponent = Vue.extend(Message)
+export const alert = ({ commit }, propsData = { title: '', message: '', type: '', direction: '', duration: 3000, container: '.messages' }) => {
+  return new MessageComponent({
+    el: document.createElement('div'),
+    propsData
+  })
 }

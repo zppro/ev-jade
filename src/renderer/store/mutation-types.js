@@ -9,3 +9,5 @@ export const TOGGLE_SIDEBAR_POPUP = 'TOGGLE_SIDEBAR_POPUP'
 export const EXPAND_MENU = 'EXPAND_MENU'
 
 export const SWITCH_EFFECT = 'SWITCH_EFFECT'
+
+export const SET_USER = 'SET_USER'
