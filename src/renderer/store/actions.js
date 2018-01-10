@@ -37,21 +37,44 @@ export const switchEffect = ({ commit }, effectItem) => {
 export const loginSuccess = ({ commit, dispatch }, user) => {
   if (user) {
     commit(types.SET_USER, user)
-    dispatch('saveUserToLS')
+    return dispatch('saveUserToLS')
+  }
+  return Promise.resolve(true)
+}
+
+export const saveUserToLS = ({ state }) => {
+  console.log('saveUserToLS...', state.app.user)
+  if (state.app.user) {
+    window.localStorage.setItem(keys.LS_USER_KEY, JSON.stringify(state.app.user))
   }
 }
 
-export const saveUserToLS = ({commit, state}) => {
-  if (state.user) {
-    window.localStorage.setItem(keys.LS_USER_KEY, JSON.stringify(state.user))
-  }
+export const removeUserFromLS = ({ state }) => {
+  window.localStorage.removeItem(keys.LS_USER_KEY)
 }
 
-export const loadUserFromLS = ({ commit }) => {
-  let user = JSON.parse(window.localStorage.getItem(keys.LS_USER_KEY))
-  if (user) {
-    commit(types.SET_USER, user)
+export const loadUserFromLS = async ({ commit, dispatch }) => {
+  let userData = JSON.parse(window.localStorage.getItem(keys.LS_USER_KEY))
+  let authed = false
+  if (userData) {
+    let valid = await dispatch('validateUserToken', userData)
+    if (valid) {
+      commit(types.SET_USER, userData)
+      authed = true
+    }
   }
+  return Promise.resolve(authed)
+}
+
+export const clearUser = ({ commit, dispatch }) => {
+  commit(types.SET_USER, null)
+  dispatch('removeUserFromLS')
+}
+
+export const validateUserToken = async ({ commit }, {_id, token}) => {
+  let userId = await Vue.http.post(`services/share/login/medical/validateToken`, {token})
+  let valid = _id === userId
+  return Promise.resolve(valid)
 }
 
 const MessageComponent = Vue.extend(Message)

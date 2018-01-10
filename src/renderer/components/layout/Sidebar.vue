@@ -2,7 +2,8 @@
   aside.menu.app-sidebar.animated(:class='{ slideInLeft: show, slideOutLeft: !show }', :style='[stateStyle]')
     nav.level.menu-label
       .level-left(v-show="!sidebar.shrinked")
-        .level-item ,您好
+        .level-item
+          .welcome {{wellcome}}
       div(:class='{ "level-item": sidebar.shrinked, "level-right": !sidebar.shrinked }')
         a.level-item.has-text-black(@click="toggleSidebarExpandable({shrinked: !sidebar.shrinked})")
           span.icon
@@ -63,6 +64,10 @@
 
     .menu-label {
       padding-left: 5px;
+      .welcome {
+        font-style: italic;
+        font-size: 1rem;
+      }
     }
 
     .menu-list {
@@ -125,7 +130,15 @@
       ...mapGetters({
         sidebar: 'sidebar',
         menu: 'menuitems',
+        app: 'app'
       }),
+      wellcome () {
+        let username = this.app.user && this.app.user.name
+        if (username) {
+          return username + ',您好'
+        }
+        return '[用户名称]'
+      },
       stateStyle () {
         return this.sidebar.shrinked ? {'width': '60px'} : {'width': '180px'}
       }

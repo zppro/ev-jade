@@ -13,18 +13,26 @@
       .navbar-item
         quicklauch.is-hidden-mobile
     .navbar-item.is-hidden-mobile
-      span.has-text-white.title 钱塘养老院
+      span.has-text-white.title
+        span(v-if="isAuthed") {{app.user.tenant.name}}
+        span(v-if="!isAuthed") [机构名称]
     .navbar-item.is-hidden-mobile
-      span.has-text-white.sub-title 2018年1月5日 星期五
+      span.has-text-white.sub-title {{currentTime}}
     .navbar-end
       .navbar-item
         .field.is-grouped
-          p.control
+          p.control(v-if="!isAuthed")
             router-link.button.is-info(to="/login")
               span.icon
                 i.fa.fa-sign-in
               span.is-hidden-mobile
                 | 登录
+          p.control(v-if="isAuthed")
+            a.button.is-info(@click="logout")
+              span.icon
+                i.fa.fa-sign-out
+              span.is-hidden-mobile
+                | 注销
           p.control
             a.button.is-primary
               span.icon
@@ -78,16 +86,42 @@
       show: Boolean
     },
 
-    computed: mapGetters({
-      pkginfo: 'pkg',
-      sidebar: 'sidebar'
-    }),
+    data () {
+      return {
+        intervalId: null,
+        currentTime: null
+      }
+    },
+
+    computed: {
+      ...mapGetters({
+        pkginfo: 'pkg',
+        sidebar: 'sidebar',
+        app: 'app',
+        isAuthed: 'isAuthed'
+      })
+    },
+
+    beforeMount () {
+      this.intervalId = window.setInterval(() => {
+        this.currentTime = this.moment().format('llll')
+      }, 1000)
+    },
+
+    beforeDestroy () {
+      if (this.intervalId) {
+        window.clearInterval(this.intervalId)
+      }
+    },
 
     methods: {
       ...mapActions([
-        'toggleSidebarVisible'
+        'toggleSidebarVisible',
+        'clearUser'
       ]),
       logout () {
+        this.clearUser()
+        this.$router.push('/login')
       }
     }
   }

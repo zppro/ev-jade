@@ -16,7 +16,8 @@ const state = {
       path: '/dashboard',
       meta: {
         label: '数字面板',
-        icon: 'fa-tachometer'
+        icon: 'fa-tachometer',
+        auth: true
       },
       component: lazyLoading('dashboard', true)
     },
@@ -24,20 +25,11 @@ const state = {
       name: 'NurseStation',
       path: '/nurse-station',
       meta: {
-        auth: true,
         label: '护士台',
-        icon: 'fa-user-md'
+        icon: 'fa-user-md',
+        auth: true
       },
       component: lazyLoading('nurse-station', true)
-    },
-    {
-      name: 'Axios',
-      path: '/axiosDemo',
-      meta: {
-        auth: true,
-        icon: 'fa-rocket'
-      },
-      component: lazyLoading('axios', true)
     },
     demoCharts,
     demoUI,

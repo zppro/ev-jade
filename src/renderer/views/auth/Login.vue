@@ -66,13 +66,14 @@
       async login () {
         this.isSubmitting = true
         console.log('isSubmitting:', this.isSubmitting, this)
-        const ret = await this.$http.post(`services/share/login/signinMedical`, {code: this.data.body.username, password_hash: md5(this.data.body.password).toString()})
+        const ret = await this.$http.post(`services/share/login/medical/signin`, {code: this.data.body.username, password_hash: md5(this.data.body.password).toString()})
           .catch(() => {
             this.isSubmitting = false
           })
         if (ret) {
           console.log('>>>', ret)
-          this.loginSuccess()
+          await this.loginSuccess(ret)
+          this.$router.replace('/')
         }
       },
       cancel () {
